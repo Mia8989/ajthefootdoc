@@ -29,8 +29,11 @@
        is needed; content is visible by default and can NEVER get stuck hidden by a throttled/paused
        animation ticker — the earlier GSAP `.from()` approach could, which blanked the hero. */
     document.documentElement.classList.add('loaded');
-    /* Subtle scroll-linked drift on the credential strip (safe: never hides anything). */
+    /* Scroll-linked drift: photo parallax + credential strip. Both are safe (never hide anything).
+       The photo's `y` is independent of the hover-tilt's rotate/scale, so GSAP composes them. */
     if (hasST) {
+      var photoEl = document.querySelector('.hero3 .photo-card');
+      if (photoEl) gsap.to(photoEl, { y: 55, ease: 'none', scrollTrigger: { trigger: '.hero3', start: 'top top', end: 'bottom top', scrub: .6 } });
       var stripEl = document.querySelector('.cred-strip .track');
       if (stripEl) gsap.to(stripEl, { xPercent: -6, ease: 'none', scrollTrigger: { trigger: '.hero3', start: 'top top', end: 'bottom top', scrub: .6 } });
     }
