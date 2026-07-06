@@ -175,8 +175,14 @@
     });
   });
 
+  /* Custom cursor + magnetic buttons disabled 2026-07-06: on desktop they made clicking feel
+     imprecise (the JS cursor hid the native one and could lag; magnetic targets shifted as you
+     approached), so links "took several tries." Native cursor is reliable. Set CURSOR_FX = true
+     to bring both back. */
+  var CURSOR_FX = false;
+
   /* ---------- Magnetic buttons: element pulls toward the cursor ---------- */
-  if (hasGsap && finePointer) {
+  if (CURSOR_FX && hasGsap && finePointer) {
     document.querySelectorAll('.btn, .btn-gold, .btn-ghost, .pillnav a, .pillnav .go, .nav-cta, .cf-submit').forEach(function (el) {
       var xTo = gsap.quickTo(el, 'x', { duration: .5, ease: 'expo.out' });
       var yTo = gsap.quickTo(el, 'y', { duration: .5, ease: 'expo.out' });
@@ -190,7 +196,7 @@
   }
 
   /* ---------- Custom cursor: dot + trailing ring, grows over interactive elements ---------- */
-  if (hasGsap && finePointer) {
+  if (CURSOR_FX && hasGsap && finePointer) {
     var dot = document.createElement('div'); dot.className = 'cursor-dot';
     var ring = document.createElement('div'); ring.className = 'cursor-ring';
     document.body.appendChild(dot); document.body.appendChild(ring);
