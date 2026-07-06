@@ -325,8 +325,9 @@ html.cursor-down .cursor-ring{width:30px;height:30px;margin:-15px 0 0 -15px}
 .cf-field{display:flex;flex-direction:column;gap:8px}
 .cf-field label.cf-label{font-size:13px;font-weight:600;color:var(--head)}
 .cf-field .cf-req{color:var(--terra)}
-.cf-field input,.cf-field textarea{font-family:inherit;font-size:15.5px;color:var(--ink);padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#FCFAF6;transition:border-color .15s,box-shadow .15s;width:100%}
-.cf-field input:focus,.cf-field textarea:focus{outline:none;border-color:var(--terra);box-shadow:0 0 0 3px rgba(193,98,46,.13);background:#fff}
+.cf-field input,.cf-field textarea,.cf-field select{font-family:inherit;font-size:15.5px;color:var(--ink);padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#FCFAF6;transition:border-color .15s,box-shadow .15s;width:100%}
+.cf-field select{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23A84E20' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+.cf-field input:focus,.cf-field textarea:focus,.cf-field select:focus{outline:none;border-color:var(--terra);box-shadow:0 0 0 3px rgba(193,98,46,.13);background:#fff}
 .cf-field textarea{resize:vertical;line-height:1.6}
 .cf-field textarea.cf-big{min-height:150px}
 .cf-field textarea.cf-comments{min-height:90px}
