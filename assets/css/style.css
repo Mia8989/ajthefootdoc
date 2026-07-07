@@ -219,6 +219,16 @@ html.cursor-down .cursor-ring{width:30px;height:30px;margin:-15px 0 0 -15px}
 .award-list li b{color:var(--head)}
 .award-list li span{display:block;font-size:13px;color:var(--faint);margin-top:2px}
 
+/* Affiliations / partner logo wall — uniform-height logos on white chips (handles mixed
+   transparent + white-bg source logos cleanly) */
+.logo-group + .logo-group{margin-top:40px}
+.logo-label{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--terra-deep);margin-bottom:18px}
+.logo-row{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+.logo-chip{background:var(--card);border:1px solid var(--hairline);border-radius:14px;padding:16px 28px;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(43,33,24,.04);transition:transform .18s,box-shadow .18s}
+.logo-chip:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.logo-chip img{height:38px;width:auto;display:block}
+@media(max-width:600px){.logo-chip{padding:13px 20px}.logo-chip img{height:30px}.logo-row{gap:12px}}
+
 /* Blog cards */
 .post-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
 .post-card{background:var(--card);border:1px solid var(--hairline);border-radius:var(--r-lg);overflow:hidden;text-decoration:none;transition:transform .18s,box-shadow .18s;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(43,33,24,.04)}
