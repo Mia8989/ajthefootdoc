@@ -225,6 +225,7 @@ html.cursor-down .cursor-ring{width:30px;height:30px;margin:-15px 0 0 -15px}
 .testimonial blockquote{margin:0 0 28px;font-family:'Bodoni Moda',serif;font-optical-sizing:auto;font-weight:500;font-style:italic;font-size:clamp(20px,2.1vw,24px);line-height:1.42;color:var(--head)}
 .testimonial figcaption{display:flex;align-items:center;gap:16px}
 .testimonial figcaption img{width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:center top;flex:none}
+.testimonial figcaption img.photo-tall{width:84px;height:auto;aspect-ratio:193/320;border-radius:14px;object-position:center}
 .testimonial figcaption b{display:block;font-size:16px;color:var(--head)}
 .testimonial figcaption span{font-size:13.5px;color:var(--faint)}
 
