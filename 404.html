@@ -12,11 +12,23 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+<!-- @layout:header -->
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">AJ<em>The Foot Doc</em></a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="this.parentElement.parentElement.classList.toggle('open')">Menu</button>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/about/">About</a>
+      <a href="/consulting/">Consulting</a>
+      <a href="/mentorship/">Mentorship</a>
+      <a href="/media/">Media</a>
+      <a href="/blog/">Insights</a>
+      <a href="/resources/">Resources</a>
+      <a class="nav-cta" href="/contact/">Contact Dr. Johnson</a>
+    </nav>
   </div>
 </header>
+<!-- @layout:end -->
 <main>
   <section class="page-hero" style="min-height:60vh">
     <div class="wrap">

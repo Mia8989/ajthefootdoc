@@ -88,7 +88,8 @@
   <div class="pre-bar"><span></span></div>
 </div>
 
-<header class="site-header" id="top">
+<!-- @layout:header -->
+<header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">AJ<em>The Foot Doc</em></a>
     <button class="nav-toggle" aria-label="Open menu" onclick="this.parentElement.parentElement.classList.toggle('open')">Menu</button>
@@ -103,6 +104,7 @@
     </nav>
   </div>
 </header>
+<!-- @layout:end -->
 
 <main>
   <section class="hero3">
@@ -294,6 +296,7 @@
   </section>
 </main>
 
+<!-- @layout:footer -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-giant" aria-hidden="true">AJ <em>The Foot Doc</em></div>
@@ -337,13 +340,16 @@
     </div>
   </div>
 </footer>
+<!-- @layout:end -->
 
+<!-- @layout:pillnav -->
 <nav class="pillnav" aria-label="Quick">
   <a href="/about/">About</a>
   <a href="/consulting/">Consulting</a>
   <a href="/mentorship/">Mentorship</a>
   <a class="go" href="/contact/">Contact</a>
 </nav>
+<!-- @layout:end -->
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
