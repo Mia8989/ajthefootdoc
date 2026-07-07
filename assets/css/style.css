@@ -219,6 +219,15 @@ html.cursor-down .cursor-ring{width:30px;height:30px;margin:-15px 0 0 -15px}
 .award-list li b{color:var(--head)}
 .award-list li span{display:block;font-size:13px;color:var(--faint);margin-top:2px}
 
+/* Rate table (private rates page) */
+.rate-list{border-top:1px solid var(--line);margin-top:8px}
+.rate-row{display:flex;justify-content:space-between;align-items:center;gap:32px;padding:28px 4px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.rate-row .rate-info h3{font-size:21px;margin-bottom:6px}
+.rate-row .rate-info p{color:var(--muted);font-size:15px;max-width:32em}
+.rate-price{font-family:'Bodoni Moda',serif;font-optical-sizing:auto;font-weight:500;font-size:clamp(30px,4.4vw,46px);color:var(--terra);white-space:nowrap;line-height:1}
+.rate-price span{font-family:'General Sans',sans-serif;font-size:14px;font-weight:600;color:var(--faint);margin-left:8px;letter-spacing:.01em}
+.rate-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--terra-deep);border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:20px}
+
 /* Affiliations / partner logo wall — uniform-height logos on white chips (handles mixed
    transparent + white-bg source logos cleanly) */
 .logo-group + .logo-group{margin-top:40px}
