@@ -220,7 +220,7 @@ html.cursor-down .cursor-ring{width:30px;height:30px;margin:-15px 0 0 -15px}
 .award-list li span{display:block;font-size:13px;color:var(--faint);margin-top:2px}
 
 /* Mentee testimonials (mentorship page) */
-.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:24px}
+.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:24px;align-items:start}
 .testimonial{background:var(--card);border:1px solid var(--hairline);border-radius:var(--r-lg);padding:40px;box-shadow:0 2px 10px rgba(43,33,24,.04);margin:0}
 .testimonial blockquote{margin:0 0 28px;font-family:'Bodoni Moda',serif;font-optical-sizing:auto;font-weight:500;font-style:italic;font-size:clamp(20px,2.1vw,24px);line-height:1.42;color:var(--head)}
 .testimonial figcaption{display:flex;align-items:center;gap:16px}
