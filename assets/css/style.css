@@ -176,7 +176,7 @@ html.cursor-down .cursor-ring{width:30px;height:30px;margin:-15px 0 0 -15px}
 .stats-band{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:left}
 .stats-band.cols-3{grid-template-columns:repeat(3,1fr)}
 .stats-band.cols-3 b{color:var(--terra)}
-.stats-band.cols-3 b .suf{font-family:'General Sans',system-ui,sans-serif;font-weight:600;font-size:.58em;vertical-align:.14em;margin-left:4px}
+.stats-band.cols-3 b .suf{font-family:'General Sans',system-ui,sans-serif;font-weight:700;font-size:.72em;vertical-align:.06em;margin-left:5px;color:var(--terra-deep)}
 .stats-band.cols-3 span{color:var(--muted)}
 .stats-band b{display:block;font-family:'Bodoni Moda',serif;font-optical-sizing:auto;font-weight:500;font-size:64px;color:var(--amber);line-height:1;margin-bottom:12px}
 .stats-band span{font-size:14px;font-weight:500;color:var(--dim);line-height:1.5}
