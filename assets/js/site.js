@@ -197,16 +197,27 @@
   /* ---------- Stat count-up ---------- */
   document.querySelectorAll('[data-count]').forEach(function (el) {
     var done = false;
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    // Build the value + suffix as separate nodes so the suffix (e.g. "+") can be
+    // styled on its own; textContent/createElement avoid any innerHTML injection.
+    var numNode = document.createTextNode(String(target));
+    el.textContent = '';
+    el.appendChild(numNode);
+    if (suffix) {
+      var sufEl = document.createElement('span');
+      sufEl.className = 'suf';
+      sufEl.textContent = suffix;
+      el.appendChild(sufEl);
+    }
     var cio = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting || done) return; done = true; cio.disconnect();
-        var target = parseInt(el.getAttribute('data-count'), 10);
-        var suffix = el.getAttribute('data-suffix') || '';
         var t0 = null;
         (function tick(t) {
           if (!t0) t0 = t;
           var p = Math.min((t - t0) / 1300, 1);
-          el.textContent = Math.round(target * (1 - Math.pow(1 - p, 4))) + suffix;
+          numNode.nodeValue = String(Math.round(target * (1 - Math.pow(1 - p, 4))));
           if (p < 1) requestAnimationFrame(tick);
         })(performance.now());
       });
