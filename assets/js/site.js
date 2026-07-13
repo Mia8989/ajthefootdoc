@@ -85,6 +85,58 @@
     playHero();
   }, 4000);
 
+  /* ---------- Testimonial slider (mentorship page): one card at a time, scroll-snap track
+     driven by arrow buttons + dots. Works under prefers-reduced-motion (instant jump instead
+     of smooth scroll), so it lives above the `if (reduce) return;` guard below. ---------- */
+  document.querySelectorAll('[data-testi-slider]').forEach(function (slider) {
+    var track = slider.querySelector('[data-testi-track]');
+    var slides = track ? Array.prototype.slice.call(track.children) : [];
+    var dotsWrap = slider.querySelector('[data-testi-dots]');
+    var prevBtn = slider.querySelector('[data-testi-prev]');
+    var nextBtn = slider.querySelector('[data-testi-next]');
+    if (!track || slides.length < 2) { if (prevBtn) prevBtn.style.display = 'none'; if (nextBtn) nextBtn.style.display = 'none'; return; }
+    var dots = slides.map(function (_, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+      b.addEventListener('click', function () { goTo(i); });
+      if (dotsWrap) dotsWrap.appendChild(b);
+      return b;
+    });
+    function current() {
+      var i = Math.round(track.scrollLeft / track.clientWidth);
+      return Math.max(0, Math.min(i, slides.length - 1));
+    }
+    /* Testimonials vary a lot in length. A flex row's cross-axis height auto-sizes to its
+       TALLEST child even when that child is scrolled off-screen, which left short cards with a
+       large dead gap before the nav controls below. Pin the track's own height to only the
+       current slide's natural height so short cards sit flush against the controls; the CSS
+       transition makes the height change feel intentional when switching slides. */
+    function setHeight() {
+      var cur = slides[current()];
+      if (cur) track.style.height = cur.getBoundingClientRect().height + 'px';
+    }
+    function updateDots() {
+      var i = current();
+      dots.forEach(function (d, idx) { d.setAttribute('aria-current', idx === i ? 'true' : 'false'); });
+      setHeight();
+    }
+    function goTo(i) {
+      i = (i + slides.length) % slides.length;
+      track.scrollTo({ left: i * track.clientWidth, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current() - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current() + 1); });
+    var resizeT;
+    window.addEventListener('resize', function () { clearTimeout(resizeT); resizeT = setTimeout(setHeight, 120); });
+    setHeight();
+    track.addEventListener('scroll', function () {
+      clearTimeout(track._testiT);
+      track._testiT = setTimeout(updateDots, 80);
+    });
+    updateDots();
+  });
+
   if (reduce) return;
 
   /* ---------- Scroll reveals ---------- */
